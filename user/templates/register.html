@@ -1,0 +1,82 @@
+{% extends 'user/layout.html' %}
+
+{% block content %} 
+
+<!DOCTYPE html>
+<html lang="en-us" >
+    <head>
+    <title>Log in | Django site admin</title>
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    <meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+<body class=" login"
+  data-admin-utc-offset="21600">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name"><a href="/user/login">User Login</a></h1>
+
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+    <!-- Content -->
+    <div id="content" class="colM">
+        <div id="content-main">
+            <form action="/user/register" method="post" id="login-form" class="register"> 
+    {%csrf_token %}
+  
+    <div class="form-row">
+      {% if form.username.errors %}
+        {{ form.username.errors }}
+      {% endif %}
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div class="form-row">
+      {% if form.password1.errors %}
+        {{ form.password1.errors }}
+      {% endif %}
+      {{form.password1.label_tag}}
+      {{form.password1}}
+    </div>
+    <div class="form-row">
+      {% if form.password2.errors %}
+        {{ form.password2.errors }}
+      {% endif %}
+      {{form.password2.label_tag}}
+      {{form.password2}}
+    </div>
+  
+  <div class="submit-row">
+    <label>&nbsp;</label><input type="submit" value="Register">
+  </div>
+</form>
+
+</div>
+   
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+  <div id="footer"></div>
+  </div>
+<!-- END Container -->
+
+</body>
+</html>
+
+{% endblock %}
